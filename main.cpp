@@ -62,6 +62,8 @@ std::string getWelcomeInput() {
 		else {
 			std::cout << "\nWelcome back!\n\n";
 		}
+
+		user_input = lower_input; // Ensure the lowercase version is being returned at end
 		break;
 	}
 
@@ -110,6 +112,11 @@ int main()
 
 	std::string user_input{ getWelcomeInput() };
 	
+	if (user_input == "new") {
+		// Create New Account
+	}
+
+	// Base Sign on Function
 
 
 	return 0;
