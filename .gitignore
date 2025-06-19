@@ -21,6 +21,12 @@ Logs/*.log
 # Mono auto generated files
 mono_crash.*
 
+#CMake files
+out/build/
+out/build/*
+build/
+build/*
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
