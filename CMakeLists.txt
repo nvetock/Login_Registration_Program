@@ -11,6 +11,16 @@ set(CMAKE_CXX_STANDARD 23)
 # Set include path
 include_directories(include)
 
+# Include the Crypto++ cloned library
+include_directories(external/cryptopp)
+
+# Add cryptopp static lib manually
+file(GLOB CRYPTOPP_SOURCES CONFIGURE_DEPENDS external/cryptopp/*.cpp)
+
+add_library(cryptopp STATIC ${CRYPTOPP_SOURCES})
+target_include_directories(cryptopp PUBLIC external/cryptopp)
+
+
 # Gather all sources
 set(SOURCES
 	src/main.cpp
@@ -20,3 +30,4 @@ set(SOURCES
 )
 
 add_executable(User_Login_Program ${SOURCES})
+target_link_libraries(User_Login_Program PRIVATE cryptopp)

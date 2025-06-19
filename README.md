@@ -7,3 +7,5 @@ A C++ program that handles user login and registration. Login utilizes password 
 - User should be able to login with username and password.
 - Forgot password section that utilizes security questions.
 
+## Clone instructions
+When cloning include the `git clone --recurse-submodules` to pull in external crypto++ library
