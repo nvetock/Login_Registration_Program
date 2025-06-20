@@ -2,7 +2,6 @@
 #include <string>
 #include  <limits>
 
-
 #include "Logger.h"
 
 // Intentionally global logger.
