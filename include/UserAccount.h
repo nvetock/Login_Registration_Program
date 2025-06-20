@@ -2,22 +2,9 @@
 #define USER_ACCOUNT_H
 
 #include <string>
-#include <fstream>
-#include <sstream>
-#include <filesystem>
-#include <iomanip>
-
-#include "Logger.h"
-
-#include "modes.h"
-#include "aes.h"
-#include "filters.h"
-
 
 class UserAccount
 {
-
-
 public:
 
 	UserAccount() {}
@@ -30,33 +17,15 @@ public:
 
 	const std::string& getUsername() const;
 
-	bool verifyPassword(std::string& input_password);
+	const bool verifyPassword(std::string& input_password) const;
 
 	void setPassword(std::string& input_password);
+
 
 private:
 	std::string username{};
 	std::string password{}; // this needs to be encrypted
 
-	// Crypto++ members
-	std::string password_ciphertext{};
-	const std::string account_info_separator{":|:"};
-
-	CryptoPP::byte key[CryptoPP::AES::DEFAULT_KEYLENGTH], iv[CryptoPP::AES::BLOCKSIZE];
-
-
-
-
-
-
-
-	const std::string _password_database_path{ "FakeDB/accountinfo.txt" };
-
-
-	bool setPasswordToFile(std::string& input_password);
-	const std::string getPasswordFromFile() const;
-
-	std::string encryptPassword(std::string& input_password);
 
 	// lost woods
 	//   
