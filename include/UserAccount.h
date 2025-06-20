@@ -9,9 +9,10 @@
 
 #include "Logger.h"
 
-#include "modes.h"
-#include "aes.h"
-#include "filters.h"
+//#include <cryptlib.h>
+//#include <modes.h>
+//#include <aes.h>
+//#include <filters.h>
 
 
 class UserAccount
@@ -41,9 +42,6 @@ private:
 	// Crypto++ members
 	std::string password_ciphertext{};
 	const std::string account_info_separator{":|:"};
-
-	CryptoPP::byte key[CryptoPP::AES::DEFAULT_KEYLENGTH], iv[CryptoPP::AES::BLOCKSIZE];
-
 
 
 

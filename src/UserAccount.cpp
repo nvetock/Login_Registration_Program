@@ -21,7 +21,7 @@ void UserAccount::setPassword(std::string& input_password) {
 
 
 /// Private
-
+/*
 std::string UserAccount::encryptPassword(std::string& plaintext) {
 	
 	std::string ciphertext{};
@@ -41,6 +41,15 @@ std::string UserAccount::encryptPassword(std::string& plaintext) {
 	}
 
 	return ciphertext;
+}
+*/
+
+std::string UserAccount::encryptPassword(std::string& plaintext) {
+
+	std::string ciphertext{};
+
+
+
 }
 
 
@@ -81,7 +90,7 @@ const std::string UserAccount::getPasswordFromFile() const {
 
 		std::string line{""};
 		while (std::getline(accountFile, line)) {
-			int end_account_index{ line.find(account_info_separator) };
+			size_t end_account_index{ line.find(account_info_separator) };
 			
 			std::string temp_account{ line.substr(0, end_account_index) };
 
