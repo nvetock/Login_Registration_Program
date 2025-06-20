@@ -44,11 +44,11 @@ std::string UserAccount::encryptPassword(std::string& plaintext) {
 }
 */
 
-std::string UserAccount::encryptPassword(std::string& plaintext) {
+std::string& UserAccount::encryptPassword(std::string& plaintext) {
 
 	std::string ciphertext{};
 
-
+	return plaintext;
 
 }
 

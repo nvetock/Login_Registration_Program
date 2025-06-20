@@ -54,7 +54,7 @@ private:
 	bool setPasswordToFile(std::string& input_password);
 	const std::string getPasswordFromFile() const;
 
-	std::string encryptPassword(std::string& input_password);
+	std::string& encryptPassword(std::string& input_password);
 
 	// lost woods
 	//   
