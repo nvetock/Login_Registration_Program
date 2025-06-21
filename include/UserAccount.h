@@ -1,76 +1,34 @@
-#ifndef USER_ACCOUNT_H
-#define USER_ACCOUNT_H
+#ifndef USERACCOUNT_H
+#define USERACCOUNT_H
 
 #include <string>
 #include <fstream>
-#include <sstream>
+#include <ostream>
+#include <istream>
 #include <filesystem>
-#include <iomanip>
 
-#include "Logger.h"
-
-//#include <cryptlib.h>
-//#include <modes.h>
-//#include <aes.h>
-//#include <filters.h>
-
-
-class UserAccount
-{
-
-
+class UserAccount {
 public:
+    UserAccount() {}
+    UserAccount(const std::string& username, const std::string& password);
+    ~UserAccount() {};
 
-	UserAccount() {}
+    bool login(const std::string& username, const std::string& password);
+    void logout();
 
-	UserAccount(std::string& username, std::string& password)
-		: username{ username }, password{ password }
-	{}
-
-	~UserAccount() {}
-
-	const std::string& getUsername() const;
-
-	bool verifyPassword(std::string& input_password);
-
-	void setPassword(std::string& input_password);
-
+    std::string& getUsername() { return _username; }
+    std::string& getPassword() { return _password; }
 private:
-	std::string username{};
-	std::string password{}; // this needs to be encrypted
+    std::string _username{};
+    std::string _password{};
+    bool _accountExistsInDB{ false };
 
-	// Crypto++ members
-	std::string password_ciphertext{};
-	const std::string account_info_separator{":|:"};
+    void setUsername(std::string& username);
+    void setPassword(std::string& password);
 
-
-
-
-
-
-	const std::string _password_database_path{ "FakeDB/accountinfo.txt" };
-
-
-	bool setPasswordToFile(std::string& input_password);
-	const std::string getPasswordFromFile() const;
-
-	std::string& encryptPassword(std::string& input_password);
-
-	// lost woods
-	//   
-	//   
-	//   
-	//   book: memory lane - interactive map that grows / note taking section
-	//   book - is the inventory system. Drawings and 'notes' are the items
-	//   
-	//   player movement - arrow keys and interaction key
-	//   
-	//   player - right hand  and   left hand
-	//   spell per dungeon?
-	//   
-	//   
-	//   
-	//   
+    void saveAccount() const;
+    bool loadAccount(std::string& user);
+    std::string hashPassword(const std::string& password) const;
 
 };
 
